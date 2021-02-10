@@ -4,7 +4,7 @@ export const loginFormInitVal = {
 };
 
 export const registerFormInitVal = {
-  fullName: "",
+  userName: "",
   email: "",
   password: "",
   password2: "",

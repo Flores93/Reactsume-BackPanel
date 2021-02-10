@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import { Formik, Field, Form } from "formik";
+import { useDispatch } from "react-redux";
 import validator from "validator";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 
 import AuthFrame from "./AuthFrame";
+import BooleanSubmitBtn from "../ui/BooleanSubmitBtn";
+import DefaultForm from "../ui/DefaultForm";
 import DefaultPaper from "../ui/DefaultPaper";
+import InputField from "../ui/InputField";
+
+import { startLogin } from "../../actions/authActions";
 
 import { loginFormInitVal } from "../../constants/formsInitialValues";
 
 const Login = () => {
   const [inputsOk, setInputsOk] = useState(false);
+  const dispatch = useDispatch();
   const { push } = useHistory();
 
-  const handleSubmit = ({ email, password }) => {
+  const handleSubmit = ({ email }) => {
     if (validator.isEmail(email)) {
-      console.log(email, password);
       setInputsOk(false);
+      dispatch(startLogin({ userName: "jose luis", email }));
     } else {
       Swal.fire("Error", "Invalid E-mail", "error");
     }
@@ -31,38 +37,26 @@ const Login = () => {
   return (
     <AuthFrame>
       <DefaultPaper>
-        <Formik
+        <DefaultForm
           initialValues={loginFormInitVal}
           onSubmit={handleSubmit}
           validate={validatingForm}
         >
-          <Form autoComplete="off">
-            <label htmlFor="email">E-mail:</label>
-            <Field
-              className="form-control mb-3"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="example@email.com"
-            />
+          <InputField
+            label="E-mail"
+            type="email"
+            name="email"
+            placeholder="example@email.com"
+          />
 
-            <label htmlFor="password">Password:</label>
-            <Field
-              className="form-control mb-3"
-              id="password"
-              type="password"
-              name="password"
-            />
+          <InputField label="Password" type="password" name="password" />
 
-            <button
-              className="btn btn-primary col-12"
-              type="submit"
-              disabled={inputsOk ? false : true}
-            >
-              Login <i className="fas fa-sign-in-alt"></i>
-            </button>
-          </Form>
-        </Formik>
+          <BooleanSubmitBtn
+            text="Login"
+            isEnable={inputsOk}
+            icon={<i className="fas fa-sign-in-alt" />}
+          />
+        </DefaultForm>
         <hr />
         <small className="mutedText" onClick={() => push("/register")}>
           Create account

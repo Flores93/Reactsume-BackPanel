@@ -1,21 +1,39 @@
-import { Field } from "formik";
 import React from "react";
+import PropTypes from "prop-types";
+import { Field } from "formik";
 
-const InputField = ({ type = "text" }) => {
+const InputField = ({
+  label = null,
+  type = "text",
+  name,
+  placeholder = "",
+  isRequired = false,
+}) => {
   return (
     <>
-      <label className="labelMinif" htmlFor="email">
-        Name:
-      </label>
+      {label && (
+        <label className="labelMinif" htmlFor="email">
+          {label}:
+        </label>
+      )}
       <Field
-        className="form-control mb-3"
+        className="form-control mb-1"
         type={`${type}`}
-        id="name"
-        name="name"
-        placeholder="Your name"
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        required={isRequired}
       />
     </>
   );
+};
+
+InputField.propTypes = {
+  label: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  isRequired: PropTypes.bool,
 };
 
 export default InputField;

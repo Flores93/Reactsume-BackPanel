@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import BackPanel from "../components/backpanel/BackPanel";
 import Register from "../components/auth/Register";
+import Login from "../components/auth/Login";
+import LoadingWrapper from "../components/ui/LoadingWrapper";
+
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
-import Login from "../components/auth/Login";
+
+import { checkSession } from "../actions/authActions";
 
 const RootRouter = () => {
+  const dispatch = useDispatch();
   // @ts-ignore
-  const { userName } = useSelector((state) => state.auth);
+  const { userName, checkingSession } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(checkSession());
+  }, [dispatch]);
+
+  if (checkingSession) {
+    return <LoadingWrapper />;
+  }
 
   return (
     <div>

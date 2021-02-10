@@ -1,0 +1,24 @@
+.panelTheme {
+  background-color: $reactBgColorLight;
+  min-height: 100vh;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+}
+
+.lateralBar {
+  text-align: center;
+  padding: 15px;
+  background-color: $reactBgColor;
+  min-height: 100vh;
+  min-width: 20vw;
+  color: $whiteText;
+  border-right: 2px solid $backgroundColor1;
+}
+
+.selectedWrapper {
+  padding: 15px;
+}
+
+.itsAPointer {
+  cursor: pointer;
+}
