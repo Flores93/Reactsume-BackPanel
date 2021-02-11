@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import BackPanel from "../components/backpanel/BackPanel";
@@ -11,6 +16,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
 
 import { checkSession } from "../actions/authActions";
+import ResumeSection from "../components/backpanel/ResumeSection";
 
 const RootRouter = () => {
   const dispatch = useDispatch();

@@ -7,12 +7,26 @@
 
 .lateralBar {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   background-color: $reactBgColor;
   min-height: 100vh;
   min-width: 20vw;
   color: $whiteText;
   border-right: 2px solid $backgroundColor1;
+}
+
+.navLink {
+  color: $whiteText;
+  text-decoration: none;
+  &:hover {
+    transition-duration: 0.5s;
+    color: $gray;
+  }
+}
+
+.activeLaterlaBar {
+  background-color: $reactBgColorLight !important;
+  color: $reactBgColor !important;
 }
 
 .selectedWrapper {

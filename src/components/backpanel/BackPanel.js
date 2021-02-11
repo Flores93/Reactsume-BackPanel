@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 
+import SelectedWrapper from "./SelectedWrapper";
 import LateralBar from "./LateralBar";
 import PanelFrame from "./PanelFrame";
-import SelectedWrapper from "./SelectedWrapper";
 
 const BackPanel = () => {
   return (
@@ -13,7 +13,7 @@ const BackPanel = () => {
           <LateralBar />
         </Grid>
         <Grid item>
-          <SelectedWrapper selected="data" />
+          <SelectedWrapper />
         </Grid>
       </Grid>
     </PanelFrame>
