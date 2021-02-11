@@ -5,6 +5,8 @@ import SelectedWrapper from "./SelectedWrapper";
 import LateralBar from "./LateralBar";
 import PanelFrame from "./PanelFrame";
 
+import PanelRoutes from "../../routes/PanelRoutes";
+
 const BackPanel = () => {
   return (
     <PanelFrame>
@@ -13,7 +15,9 @@ const BackPanel = () => {
           <LateralBar />
         </Grid>
         <Grid item>
-          <SelectedWrapper />
+          <SelectedWrapper>
+            <PanelRoutes />
+          </SelectedWrapper>
         </Grid>
       </Grid>
     </PanelFrame>

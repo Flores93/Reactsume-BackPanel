@@ -1,6 +1,13 @@
-export const navSections = ["About Me", "Resume/CV", "Portfolio"];
-// export const navSectionsIcons = { I'LL USE THIS LATER....
-//   "About Me": <i className="fas fa-user" />,
-//   "Resume/CV": <i className="fas fa-file-alt" />,
-//   Portfolio: <i className="fas fa-briefcase" />,
-// };
+export const navSections = [
+  { name: "About Me", path: "aboutme", icon: <i className="fas fa-user" /> },
+  {
+    name: "Resume/CV",
+    path: "resume",
+    icon: <i className="fas fa-file-alt" />,
+  },
+  {
+    name: "Portfolio",
+    path: "portfolio",
+    icon: <i className="fas fa-briefcase" />,
+  },
+];

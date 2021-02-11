@@ -1,33 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { ListItem, ListItemText } from "@material-ui/core";
 
-const CustomListItem = ({
-  children,
-  onClick = null,
-  activeClassName = null,
-}) => {
-  // @ts-ignore
-  const { currentSection } = useSelector((state) => state.ui);
-
-  const activeClass = () => {
-    if (children === currentSection && !!activeClassName) {
-      return activeClassName;
-    }
-  };
-
+const CustomListItem = ({ children, onClick = null, to = "/" }) => {
   return (
-    <ListItem onClick={onClick} className={`${activeClass()}`} button>
-      <ListItemText>{children}</ListItemText>
-    </ListItem>
+    <>
+      {to !== "/" ? (
+        <ListItem
+          onClick={onClick}
+          button
+          to={to}
+          activeClassName="activeLaterlaBar"
+          component={NavLink}
+        >
+          <ListItemText>{children}</ListItemText>
+        </ListItem>
+      ) : (
+        <ListItem onClick={onClick} button>
+          <ListItemText>{children}</ListItemText>
+        </ListItem>
+      )}
+    </>
   );
 };
 
 CustomListItem.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
-  activeClassName: PropTypes.string,
+  to: PropTypes.string,
 };
 
 export default CustomListItem;
