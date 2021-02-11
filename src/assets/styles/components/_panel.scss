@@ -38,7 +38,11 @@
 }
 
 .selectedWrapper {
-  padding: 15px;
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .itsAPointer {

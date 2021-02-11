@@ -8,6 +8,7 @@ const InputField = ({
   name,
   placeholder = "",
   isRequired = false,
+  extraCss = "",
 }) => {
   return (
     <>
@@ -17,7 +18,7 @@ const InputField = ({
         </label>
       )}
       <Field
-        className="form-control mb-1"
+        className={`form-control mb-1 ${extraCss}`}
         type={`${type}`}
         id={name}
         name={name}
@@ -34,6 +35,7 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   isRequired: PropTypes.bool,
+  extraCss: PropTypes.string,
 };
 
 export default InputField;

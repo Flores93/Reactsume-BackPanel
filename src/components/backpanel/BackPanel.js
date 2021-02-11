@@ -11,10 +11,10 @@ const BackPanel = () => {
   return (
     <PanelFrame>
       <Grid container>
-        <Grid item>
+        <Grid item xs={2}>
           <LateralBar />
         </Grid>
-        <Grid item>
+        <Grid item xs={10}>
           <SelectedWrapper>
             <PanelRoutes />
           </SelectedWrapper>

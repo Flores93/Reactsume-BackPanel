@@ -9,3 +9,9 @@ export const registerFormInitVal = {
   password: "",
   password2: "",
 };
+
+export const displayNameDescriptionInitVal = {
+  displayName: "",
+  profession: "",
+  description: "",
+};
