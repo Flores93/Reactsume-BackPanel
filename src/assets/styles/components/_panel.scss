@@ -32,6 +32,10 @@
   text-align: center !important;
 }
 
+.mr-2 {
+  margin-right: 10px;
+}
+
 .activeLaterlaBar {
   background-color: $reactBgColorLight !important;
   color: $reactBgColor !important;
@@ -39,12 +43,23 @@
 
 .selectedWrapper {
   padding: 5vw;
-  display: flex;
+  // display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.customSmallContainerCentered  {
+  padding-top: 30px;
+}
+
 .itsAPointer {
   cursor: pointer;
+}
+
+.green {
+  color: green;
+}
+.red {
+  color: red;
 }

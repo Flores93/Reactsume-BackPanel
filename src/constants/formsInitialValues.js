@@ -1,3 +1,5 @@
+import MultipleForm from "../components/ui/MultipleForm";
+
 export const loginFormInitVal = {
   email: "",
   password: "",
@@ -14,10 +16,4 @@ export const displayNameDescriptionInitVal = {
   displayName: "",
   profession: "",
   description: "",
-};
-
-export const userDataInitVal = {
-  nationality: "",
-  birthPlace: "",
-  birthDay: new Date().getTime(),
 };
