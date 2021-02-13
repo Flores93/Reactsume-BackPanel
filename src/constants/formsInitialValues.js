@@ -1,5 +1,3 @@
-import MultipleForm from "../components/ui/MultipleForm";
-
 export const loginFormInitVal = {
   email: "",
   password: "",
