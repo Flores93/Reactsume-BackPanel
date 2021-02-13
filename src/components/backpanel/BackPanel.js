@@ -14,7 +14,7 @@ const BackPanel = () => {
         <Grid item xs={2}>
           <LateralBar />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={10} style={{ height: "100vh", overflow: "auto" }}>
           <SelectedWrapper>
             <PanelRoutes />
           </SelectedWrapper>

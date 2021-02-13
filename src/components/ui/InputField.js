@@ -8,7 +8,6 @@ const InputField = ({
   name,
   placeholder = "",
   isRequired = false,
-  extraCss = "",
 }) => {
   return (
     <>
@@ -18,7 +17,7 @@ const InputField = ({
         </label>
       )}
       <Field
-        className={`form-control mb-1 ${extraCss}`}
+        className="form-control mb-1"
         type={`${type}`}
         id={name}
         name={name}

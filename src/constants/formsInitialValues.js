@@ -15,3 +15,9 @@ export const displayNameDescriptionInitVal = {
   profession: "",
   description: "",
 };
+
+export const userDataInitVal = {
+  nationality: "",
+  birthPlace: "",
+  birthDay: new Date().getTime(),
+};
