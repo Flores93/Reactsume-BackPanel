@@ -4,6 +4,7 @@ import { Field } from "formik";
 
 import DefaultForm from "./DefaultForm";
 import InputField from "./InputField";
+import SaveRemoveBtn from "./SaveRemoveBtn";
 
 //pending refactor
 const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
@@ -54,17 +55,7 @@ const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
               />
             )}
           </div>
-          <div className="col-1">
-            <button type="submit" className="btn btn-primary">
-              Save
-            </button>
-          </div>
-          <div className="col-1">
-            <i
-              onClick={remove}
-              className="fas itsAPointer red fa-trash-alt ml-2"
-            ></i>
-          </div>
+          <SaveRemoveBtn isDisabled={true} remove={remove} />
         </div>
       </div>
     </DefaultForm>
