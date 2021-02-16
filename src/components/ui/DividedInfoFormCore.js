@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import DefaultForm from "./DefaultForm";
 import InputField from "./InputField";
+import SaveRemoveBtn from "./SaveRemoveBtn";
 
 import { savingNewInfo, updatingInfo } from "../../actions/aboutmeActions";
 
@@ -57,18 +58,7 @@ const DividedInfoFormCore = ({ FormInitVal, remove, itsUpdate = false }) => {
               isRequired
             />
           </div>
-          <div className="col-sm-2">
-            <button
-              type="submit"
-              className="btn btn-success"
-              disabled={inputsOk}
-            >
-              <i className="far fa-save"></i>
-            </button>
-            <button type="button" onClick={remove} className="btn btn-danger">
-              <i className="fas fa-trash-alt ml-2"></i>
-            </button>
-          </div>
+          <SaveRemoveBtn isDisabled={inputsOk} remove={remove} />
         </div>
       </div>
     </DefaultForm>

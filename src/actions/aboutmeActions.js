@@ -1,5 +1,21 @@
 import { types } from "../constants/types";
 
+export const deletingSocialNet = (id) => {
+  return (dispatch) => {
+    dispatch(socialNetDeleted(id));
+  };
+};
+
+export const savingNewSocialNet = (values) => {
+  const data = {
+    ...values,
+    id: new Date().getTime(),
+  };
+  return (dispatch) => {
+    dispatch(newSocialNetSaved(data));
+  };
+};
+
 export const deletingInfo = (infoId) => {
   return (dispatch) => {
     dispatch(infoDeleted(infoId));
@@ -35,6 +51,18 @@ export const savingDescriptionValues = (values) => {
     dispatch(descriptionValuesSaved(values));
   };
 };
+
+//=====Synchronous=======
+
+const socialNetDeleted = (id) => ({
+  type: types.aboutmeDeleteSocialNet,
+  payload: id,
+});
+
+const newSocialNetSaved = (values) => ({
+  type: types.aboutmeAddSocialNet,
+  payload: values,
+});
 
 const infoDeleted = (infoId) => ({
   type: types.aboutmeDeleteInfo,

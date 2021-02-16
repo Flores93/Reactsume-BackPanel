@@ -25,6 +25,16 @@ export const aboutmeReducer = (state = aboutMeInitValues, action) => {
         ...state,
         infos: state.infos.filter((info) => info.id !== action.payload),
       };
+    case types.aboutmeAddSocialNet:
+      return {
+        ...state,
+        socials: [...state.socials, action.payload],
+      };
+    case types.aboutmeDeleteSocialNet:
+      return {
+        ...state,
+        socials: state.socials.filter((social) => social.id !== action.payload),
+      };
     default:
       return state;
   }

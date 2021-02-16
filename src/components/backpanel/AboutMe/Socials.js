@@ -1,18 +1,25 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import SocialLinksFormCore from "../../ui/SocialLinksFormCore";
+import HDivider from "../../ui/HDivider";
+import IndividualSocial from "../../ui/IndividualSocial";
 
 const Socials = () => {
-  const [socials, setSocials] = useState([]);
+  const { socials } = useSelector((state) => state.aboutMe);
+  const [socialsFields, setSocialsFields] = useState([]);
 
   const addNewField = () => {
-    setSocials([...socials, { net: "", link: "", id: new Date().getTime() }]);
+    setSocialsFields([
+      ...socialsFields,
+      { net: "", link: "", id: new Date().getTime() },
+    ]);
   };
 
   const removeField = (i) => {
-    const arrayFilter = socials.filter(({ id }) => id !== i);
+    const arrayFilter = socialsFields.filter(({ id }) => id !== i);
 
-    setSocials(arrayFilter);
+    setSocialsFields(arrayFilter);
   };
 
   return (
@@ -22,13 +29,21 @@ const Socials = () => {
         <i className="fas green fa-plus-circle mr-2" />
         Add network
       </span>
-      {socials.map(({ net, link, id }) => (
+      {socialsFields.map(({ net, link, id }) => (
         <SocialLinksFormCore
           key={id}
           FormInitVal={{ net, link }}
           remove={() => removeField(id)}
         />
       ))}
+      {socials.length > 0 && (
+        <div className="container row">
+          <HDivider mt="15px" mb="15px" />
+          {socials.map(({ net, link, id }) => (
+            <IndividualSocial key={id} net={net} link={link} id={id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

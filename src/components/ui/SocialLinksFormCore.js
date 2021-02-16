@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { Field } from "formik";
 
 import DefaultForm from "./DefaultForm";
 import InputField from "./InputField";
+import SaveRemoveBtn from "./SaveRemoveBtn";
+
+import { savingNewSocialNet } from "../../actions/aboutmeActions";
+
+import { simpleVal } from "../../helpers/validation";
+import { socialNetworks } from "../../constants/socialNetworks";
 
 const SocialLinksFormCore = ({ FormInitVal, remove }) => {
+  const [disable, setDisable] = useState(true);
+  const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
-    console.log(values);
+    dispatch(savingNewSocialNet(values));
+    remove();
   };
-  const validatingForm = (values) => {};
+  const validatingForm = ({ link, net }) => {
+    if (simpleVal(link) && simpleVal(net)) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  };
 
   return (
     <DefaultForm
@@ -19,25 +37,28 @@ const SocialLinksFormCore = ({ FormInitVal, remove }) => {
       <div className="container mt-4">
         <div className="row">
           <div className="col-5">
-            <InputField name="net" placeholder="LinkedIn..." />
+            <Field
+              name="net"
+              className="form-control"
+              component="select"
+              required={true}
+            >
+              <option>Select a Social Network</option>
+              {socialNetworks.map(({ name, icon }) => (
+                <option key={icon} value={icon}>
+                  {name}
+                </option>
+              ))}
+            </Field>
           </div>
           <div className="col-5">
             <InputField
               name="link"
               placeholder="https://linkedin.com/yourprofile"
+              isRequired
             />
           </div>
-          <div className="col-1">
-            <button type="submit" className="btn btn-primary">
-              Save
-            </button>
-          </div>
-          <div className="col-1">
-            <i
-              onClick={remove}
-              className="fas itsAPointer red fa-trash-alt ml-2"
-            ></i>
-          </div>
+          <SaveRemoveBtn isDisabled={disable} remove={remove} />
         </div>
       </div>
     </DefaultForm>

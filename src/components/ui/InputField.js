@@ -12,7 +12,7 @@ const InputField = ({
   return (
     <>
       {label && (
-        <label className="labelMinif" htmlFor="email">
+        <label className="labelMini" htmlFor="email">
           {label}:
         </label>
       )}

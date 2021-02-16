@@ -13,4 +13,6 @@ export const types = {
   aboutmeAddInfo: "[ABOUT_ME]ADD_INFO",
   aboutmeUpdateInfo: "[ABOUT_ME]UPDATE_INFO",
   aboutmeDeleteInfo: "[ABOUT_ME]DELETE_INFO",
+  aboutmeAddSocialNet: "[ABOUT_ME]ADD_SOCIAL_NET",
+  aboutmeDeleteSocialNet: "[ABOUT_ME]DELETE_SOCIAL_NET",
 };

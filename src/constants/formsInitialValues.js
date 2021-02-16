@@ -15,4 +15,5 @@ export const aboutMeInitValues = {
   profession: "",
   description: "",
   infos: [],
+  socials: [],
 };
