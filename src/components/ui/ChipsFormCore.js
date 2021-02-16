@@ -14,6 +14,7 @@ const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
       console.log("new hobbie", values);
     }
   };
+
   const validatingForm = (values) => {};
 
   return (

@@ -14,7 +14,6 @@ import { checkSession } from "../actions/authActions";
 
 const RootRouter = () => {
   const dispatch = useDispatch();
-  // @ts-ignore
   const { userName, checkingSession } = useSelector((state) => state.auth);
 
   useEffect(() => {

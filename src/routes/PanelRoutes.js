@@ -9,7 +9,6 @@ import PortfolioSection from "../components/backpanel/PortfolioSection";
 import PrivateRoutes from "./PrivateRoutes";
 
 const PanelRoutes = () => {
-  // @ts-ignore
   const { userName } = useSelector((state) => state.auth);
 
   return (
