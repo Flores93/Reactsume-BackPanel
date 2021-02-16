@@ -26,7 +26,7 @@ const Socials = () => {
     <div className="mt-3">
       <h3>Your social networks</h3>
       <span onClick={addNewField} className="itsAPointer">
-        <i className="fas green fa-plus-circle mr-2" />
+        <i className="fas green fa-plus-circle mr-1" />
         Add network
       </span>
       {socialsFields.map(({ net, link, id }) => (

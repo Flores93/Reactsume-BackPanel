@@ -5,15 +5,6 @@
   font-size: calc(10px + 2vmin);
 }
 
-.reactBg {
-  background-color: $backgroundColor1;
-  border-radius: 5px;
-}
-
-.btnLateralNav {
-  color: $whiteText !important;
-}
-
 .lateralBar {
   text-align: center;
   padding: 10px;
@@ -22,6 +13,16 @@
   min-width: 20vw;
   color: $whiteText;
   border-right: 2px solid $backgroundColor1;
+}
+
+.activeLaterlaBar {
+  background-color: $reactBgColorLight !important;
+  color: $reactBgColor !important;
+}
+
+.reactBg {
+  background-color: $backgroundColor1;
+  border-radius: 5px;
 }
 
 .navLink {
@@ -33,63 +34,10 @@
   }
 }
 
-.textWhite {
-  color: $whiteText;
-}
-.text-center {
-  text-align: center !important;
-}
-.textStart {
-  text-align: start;
-}
-.textEnd {
-  text-align: end;
-}
-
-.mr-2 {
-  margin-right: 10px;
-}
-.mt-3  {
-  margin-top: 30px;
-}
-
-.activeLaterlaBar {
-  background-color: $reactBgColorLight !important;
-  color: $reactBgColor !important;
-}
-
 .selectedWrapper {
   padding: 5vw;
   // display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.customSmallContainerCentered  {
-  padding-top: 30px;
-}
-
-.itsAPointer {
-  cursor: pointer;
-}
-
-.small {
-  font-size: 12px;
-  color: $smallColor;
-  background-color: $danger;
-  border-radius: 4px;
-  padding: 1px;
-}
-.alertRed {
-  @extend .small;
-  color: $whiteText;
-  font-weight: bold;
-}
-
-.green {
-  color: green;
-}
-.red {
-  color: red;
 }

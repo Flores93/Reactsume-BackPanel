@@ -21,7 +21,7 @@ const Hobbies = () => {
     <div className="mt-3">
       <h3>Hobbies</h3>
       <span onClick={addNewField} className="itsAPointer">
-        <i className="fas green fa-plus-circle mr-2" />
+        <i className="fas green fa-plus-circle mr-1" />
         Add a new hobby
       </span>
       {hobbies.map(({ icon, label, color, id }) => (

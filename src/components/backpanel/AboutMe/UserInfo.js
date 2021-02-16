@@ -23,7 +23,7 @@ const UserInfo = () => {
     <div className="mt-3">
       <h3>User info</h3>
       <span onClick={addNewField} className="itsAPointer">
-        <i className="fas green fa-plus-circle mr-2" />
+        <i className="fas green fa-plus-circle mr-1" />
         Add info
       </span>
       {forms.map(({ type, value, id }) => (
