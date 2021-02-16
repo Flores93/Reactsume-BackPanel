@@ -10,6 +10,7 @@ import SaveRemoveBtn from "./SaveRemoveBtn";
 import { savingNewSocialNet } from "../../actions/aboutmeActions";
 
 import { simpleVal } from "../../helpers/validation";
+
 import { socialNetworks } from "../../constants/socialNetworks";
 
 const SocialLinksFormCore = ({ FormInitVal, remove }) => {
