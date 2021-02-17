@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid, Typography } from "@material-ui/core";
 
+import AddNewElement from "../../ui/AddNewElement";
 import BooleanSubmitBtn from "../../ui/BooleanSubmitBtn";
 import DefaultForm from "../../ui/DefaultForm";
 import InputField from "../../ui/InputField";
 import SmallAlerts from "../../ui/SmallAlerts";
 
 import { savingDescriptionValues } from "../../../actions/aboutmeActions";
+import { hiddeAddBtn } from "../../../actions/uiActions";
 
 import { simpleVal } from "../../../helpers/validation";
-import AddNewElement from "../../ui/AddNewElement";
-import { hiddeAddBtn } from "../../../actions/uiActions";
 
 export const DescriptionInputs = () => {
   const { displayName, profession, description } = useSelector(
@@ -43,18 +43,16 @@ export const DescriptionInputs = () => {
     setDisable(false);
   };
 
-  const DescriptionVisualization = () => {
-    return (
-      <div className="container text-center">
-        <h2>{displayName}</h2>
-        <h3>{profession}</h3>
-        <Typography variant="h6" align="center">
-          {description}
-        </Typography>
-        <i onClick={handlerEdit} className="itsAPointer noselect fas fa-edit" />
-      </div>
-    );
-  };
+  const DescriptionVisualization = () => (
+    <div className="container text-center">
+      <h2>{displayName}</h2>
+      <h3>{profession}</h3>
+      <Typography variant="h6" align="center">
+        {description}
+      </Typography>
+      <i onClick={handlerEdit} className="itsAPointer noselect fas fa-edit" />
+    </div>
+  );
 
   return (
     <>
