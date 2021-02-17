@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { DescriptionInputs, DescriptionReadOnly } from "./DescriptionContent";
+import { DescriptionInputs, DescriptionEmpty } from "./DescriptionContent";
 
 const Description = () => {
   const { displayName, profession, description } = useSelector(
@@ -13,7 +13,7 @@ const Description = () => {
       {displayName && profession && description ? (
         <DescriptionInputs />
       ) : (
-        <DescriptionReadOnly />
+        <DescriptionEmpty />
       )}
     </>
   );

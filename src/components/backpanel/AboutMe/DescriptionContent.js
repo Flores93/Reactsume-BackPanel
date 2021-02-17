@@ -98,7 +98,7 @@ export const DescriptionInputs = () => {
   );
 };
 
-export const DescriptionReadOnly = () => {
+export const DescriptionEmpty = () => {
   const { hiddeDescriptionInputs } = useSelector((state) => state.ui);
 
   const dispatch = useDispatch();
