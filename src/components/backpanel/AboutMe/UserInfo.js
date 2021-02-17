@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import DividedData from "../../ui/DividedData";
 import DividedInfoFormCore from "../../ui/DividedInfoFormCore";
-import HDivider from "../../ui/HDivider";
 
 const UserInfo = () => {
   const [forms, setForms] = useState([]);
@@ -33,16 +33,11 @@ const UserInfo = () => {
           remove={() => removeField(id)}
         />
       ))}
-      {infos.length > 0 && (
-        <div className="container">
-          <HDivider mt="15px" mb="15px" />
-          <div className="reactBg">
-            {infos.map(({ type, value, id }) => (
-              <DividedData key={id} type={type} val={value} id={id} />
-            ))}
-          </div>
-        </div>
-      )}
+      <ComponentMappingWrapper exists={infos}>
+        {infos.map(({ type, value, id }) => (
+          <DividedData key={id} type={type} val={value} id={id} />
+        ))}
+      </ComponentMappingWrapper>
     </div>
   );
 };

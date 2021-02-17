@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import ChipsFormCore from "../../ui/ChipsFormCore";
-import HDivider from "../../ui/HDivider";
+import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import ShowChip from "../../ui/ShowChip";
 
 const Hobbies = () => {
@@ -46,14 +46,11 @@ const Hobbies = () => {
           remove={() => removeField(id)}
         />
       ))}
-      {hobbies.length > 0 && (
-        <div className="container row">
-          <HDivider mt="15px" mb="15px" />
-          {hobbies.map((hobbie) => (
-            <ShowChip key={hobbie.id} {...hobbie} />
-          ))}
-        </div>
-      )}
+      <ComponentMappingWrapper exists={hobbies}>
+        {hobbies.map((hobbie) => (
+          <ShowChip key={hobbie.id} {...hobbie} />
+        ))}
+      </ComponentMappingWrapper>
     </div>
   );
 };

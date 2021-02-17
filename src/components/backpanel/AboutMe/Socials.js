@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import SocialLinksFormCore from "../../ui/SocialLinksFormCore";
-import HDivider from "../../ui/HDivider";
 import IndividualSocial from "../../ui/IndividualSocial";
 
 const Socials = () => {
@@ -36,14 +36,11 @@ const Socials = () => {
           remove={() => removeField(id)}
         />
       ))}
-      {socials.length > 0 && (
-        <div className="container row">
-          <HDivider mt="15px" mb="15px" />
-          {socials.map(({ net, link, id }) => (
-            <IndividualSocial key={id} net={net} link={link} id={id} />
-          ))}
-        </div>
-      )}
+      <ComponentMappingWrapper exists={socials}>
+        {socials.map(({ net, link, id }) => (
+          <IndividualSocial key={id} net={net} link={link} id={id} />
+        ))}
+      </ComponentMappingWrapper>
     </div>
   );
 };
