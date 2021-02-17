@@ -1,11 +1,7 @@
 import { types } from "../constants/types";
 
-export const descFieldsOk = () => ({
-  type: types.uiDescFieldsOk,
-});
-
-export const descFieldsError = () => ({
-  type: types.uiDescFieldsError,
+export const hiddeAddBtn = () => ({
+  type: types.uiHiddeDescriptionInput,
 });
 
 export const isEditDivData = (dataId) => ({

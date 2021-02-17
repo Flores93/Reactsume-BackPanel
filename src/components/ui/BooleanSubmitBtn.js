@@ -6,7 +6,7 @@ const BooleanSubmitBtn = ({ isEnable, text, icon = null }) => {
     <button
       className="btn btn-primary col-12 mt-3"
       type="submit"
-      disabled={isEnable ? false : true}
+      disabled={isEnable}
     >
       {text} {icon}
     </button>

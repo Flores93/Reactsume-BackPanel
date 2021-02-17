@@ -4,10 +4,9 @@ export const types = {
   authLogOut: "[AUTH]START_LOGOUT",
   authCheckSession: "[AUTH]CHECK_SESSION",
   //======UI=======
-  uiDescFieldsOk: "[UI]DESC_FIELDS_OK",
-  uiDescFieldsError: "[UI]DESC_FIELDS_ERROR",
   uiEditDivData: "[UI]ACTIVE_EDIT:DIVIDED_DATA",
   uiDisableEditDivData: "[UI]DISABLE_EDIT:DIVIDED_DATA",
+  uiHiddeDescriptionInput: "[UI]HIDDE_DESCRIPTION_INPUTS",
   //======AboutMe Section=======
   aboutmeAddDescription: "[ABOUT_ME]ADD_DESCRIPTION",
   aboutmeAddInfo: "[ABOUT_ME]ADD_INFO",

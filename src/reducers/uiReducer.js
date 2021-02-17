@@ -3,20 +3,11 @@ import { types } from "../constants/types";
 const initState = {
   descriptionFieldsOk: true,
   activeEditDividedData: null,
+  hiddeDescriptionInputs: true,
 };
 
 export const uiReducer = (state = initState, action) => {
   switch (action.type) {
-    case types.uiDescFieldsOk:
-      return {
-        ...state,
-        descriptionFieldsOk: true,
-      };
-    case types.uiDescFieldsError:
-      return {
-        ...state,
-        descriptionFieldsOk: false,
-      };
     case types.uiEditDivData:
       return {
         ...state,
@@ -26,6 +17,11 @@ export const uiReducer = (state = initState, action) => {
       return {
         ...state,
         activeEditDividedData: null,
+      };
+    case types.uiHiddeDescriptionInput:
+      return {
+        ...state,
+        hiddeDescriptionInputs: !state.hiddeDescriptionInputs,
       };
     default:
       return state;
