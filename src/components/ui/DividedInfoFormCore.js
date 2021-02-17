@@ -6,13 +6,13 @@ import DefaultForm from "./DefaultForm";
 import InputField from "./InputField";
 import SaveRemoveBtn from "./SaveRemoveBtn";
 
+import { disableEditDivData } from "../../actions/uiActions";
 import { savingNewInfo, updatingInfo } from "../../actions/aboutmeActions";
 
 import { simpleVal } from "../../helpers/validation";
-import { disableEditDivData } from "../../actions/uiActions";
 
 const DividedInfoFormCore = ({ FormInitVal, remove, itsUpdate = false }) => {
-  const [inputsOk, setInputsOk] = useState(itsUpdate ? false : true);
+  const [disable, setDisable] = useState(itsUpdate ? false : true);
   const dispatch = useDispatch();
 
   const handleSubmit = (val) => {
@@ -27,9 +27,9 @@ const DividedInfoFormCore = ({ FormInitVal, remove, itsUpdate = false }) => {
 
   const validatingForm = ({ type, value }) => {
     if (simpleVal(type) && simpleVal(value)) {
-      setInputsOk(false);
+      setDisable(false);
     } else {
-      setInputsOk(true);
+      setDisable(true);
     }
   };
 
@@ -58,7 +58,7 @@ const DividedInfoFormCore = ({ FormInitVal, remove, itsUpdate = false }) => {
               isRequired
             />
           </div>
-          <SaveRemoveBtn isDisabled={inputsOk} remove={remove} />
+          <SaveRemoveBtn isDisabled={disable} remove={remove} />
         </div>
       </div>
     </DefaultForm>
@@ -68,6 +68,7 @@ const DividedInfoFormCore = ({ FormInitVal, remove, itsUpdate = false }) => {
 DividedInfoFormCore.propTypes = {
   FormInitVal: PropTypes.object.isRequired,
   remove: PropTypes.func.isRequired,
+  itsUpdate: PropTypes.bool,
 };
 
 export default DividedInfoFormCore;

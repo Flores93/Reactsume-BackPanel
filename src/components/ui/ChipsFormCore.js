@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import { Field } from "formik";
 
 import DefaultForm from "./DefaultForm";
 import InputField from "./InputField";
 import SaveRemoveBtn from "./SaveRemoveBtn";
 
-//pending refactor
+import { savingNewHobbie } from "../../actions/aboutmeActions";
+
+import { simpleVal } from "../../helpers/validation";
+
 const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
+  const [disable, setDisable] = useState(true);
+  const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
     if (isSkill) {
       console.log("new skill: ", values);
+      // dispatch()
     } else {
-      console.log("new hobbie", values);
+      dispatch(savingNewHobbie(values));
+      remove();
     }
   };
 
-  const validatingForm = (values) => {};
+  const validatingForm = ({ label, icon, bgColor }) => {
+    if (simpleVal(label) && simpleVal(icon) && simpleVal(bgColor)) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  };
 
   return (
     <DefaultForm
@@ -27,11 +42,10 @@ const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
       <div className="container mt-4">
         <div className="row">
           <div className="col-5">
-            {!isSkill ? (
-              <InputField name="label" placeholder="Cycling" />
-            ) : (
-              <InputField name="name" placeholder="Reactjs" />
-            )}
+            <InputField
+              name="label"
+              placeholder={!isSkill ? "Cycling" : "ReactJs"}
+            />
           </div>
           <div className="col-3">
             <InputField
@@ -43,7 +57,7 @@ const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
           </div>
           <div className="col-2">
             {!isSkill ? (
-              <Field className="form-control" component="select" name="color">
+              <Field className="form-control" component="select" name="bgColor">
                 <option>Select a color</option>
                 <option value="secondary">Red</option>
                 <option value="primary">Blue</option>
@@ -55,7 +69,7 @@ const ChipsFormCore = ({ FormInitVal, remove, isSkill = false }) => {
               />
             )}
           </div>
-          <SaveRemoveBtn isDisabled={true} remove={remove} />
+          <SaveRemoveBtn isDisabled={disable} remove={remove} />
         </div>
       </div>
     </DefaultForm>

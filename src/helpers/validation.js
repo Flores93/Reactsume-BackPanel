@@ -1,9 +1,8 @@
 import validator from "validator";
 
-export const simpleVal = (val) => {
-  if (!validator.isEmpty(val)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+export const simpleVal = (val) => (!validator.isEmpty(val) ? true : false);
+
+export const isURL = (url) =>
+  validator.isURL(url, { require_host: true, require_protocol: true })
+    ? true
+    : false;

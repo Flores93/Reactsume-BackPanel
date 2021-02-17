@@ -16,4 +16,5 @@ export const aboutMeInitValues = {
   description: "",
   infos: [],
   socials: [],
+  hobbies: [],
 };

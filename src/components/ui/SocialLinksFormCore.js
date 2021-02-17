@@ -9,7 +9,7 @@ import SaveRemoveBtn from "./SaveRemoveBtn";
 
 import { savingNewSocialNet } from "../../actions/aboutmeActions";
 
-import { simpleVal } from "../../helpers/validation";
+import { isURL, simpleVal } from "../../helpers/validation";
 
 import { socialNetworks } from "../../constants/socialNetworks";
 
@@ -22,7 +22,7 @@ const SocialLinksFormCore = ({ FormInitVal, remove }) => {
     remove();
   };
   const validatingForm = ({ link, net }) => {
-    if (simpleVal(link) && simpleVal(net)) {
+    if (isURL(link) && simpleVal(net)) {
       setDisable(false);
     } else {
       setDisable(true);

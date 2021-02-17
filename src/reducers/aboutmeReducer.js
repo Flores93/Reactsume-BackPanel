@@ -35,6 +35,16 @@ export const aboutmeReducer = (state = aboutMeInitValues, action) => {
         ...state,
         socials: state.socials.filter((social) => social.id !== action.payload),
       };
+    case types.aboutmeAddNewHobbie:
+      return {
+        ...state,
+        hobbies: [...state.hobbies, action.payload],
+      };
+    case types.aboutmeDeleteHobbie:
+      return {
+        ...state,
+        hobbies: state.hobbies.filter((hobby) => hobby.id !== action.payload),
+      };
     default:
       return state;
   }
