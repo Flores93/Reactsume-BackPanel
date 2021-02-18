@@ -15,13 +15,13 @@ import { startLogin } from "../../actions/authActions";
 import { loginFormInitVal } from "../../constants/formsInitialValues";
 
 const Login = () => {
-  const [inputsOk, setInputsOk] = useState(false);
+  const [disable, setDisable] = useState(true);
   const dispatch = useDispatch();
   const { push } = useHistory();
 
   const handleSubmit = ({ email }) => {
     if (validator.isEmail(email)) {
-      setInputsOk(false);
+      setDisable(false);
       dispatch(startLogin({ userName: "jose luis", email }));
     } else {
       Swal.fire("Error", "Invalid E-mail", "error");
@@ -30,7 +30,9 @@ const Login = () => {
 
   const validatingForm = ({ email, password }) => {
     if (email.length > 3 && password.length > 3) {
-      setInputsOk(true);
+      setDisable(false);
+    } else {
+      setDisable(true);
     }
   };
 
@@ -53,7 +55,7 @@ const Login = () => {
 
           <BooleanSubmitBtn
             text="Login"
-            isEnable={inputsOk}
+            isEnable={disable}
             icon={<i className="fas fa-sign-in-alt" />}
           />
         </DefaultForm>
