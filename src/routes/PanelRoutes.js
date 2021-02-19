@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect, Switch } from "react-router-dom";
 
 import AboutMeSection from "../components/backpanel/AboutMe/AboutMeSection";
-import ResumeSection from "../components/backpanel/ResumeSection";
+import ResumeSection from "../components/backpanel/Resume/ResumeSection";
 import PortfolioSection from "../components/backpanel/PortfolioSection";
 
 import PrivateRoutes from "./PrivateRoutes";

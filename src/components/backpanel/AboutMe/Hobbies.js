@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import AddNewElementHeaderSecondary from "../../ui/AddNewElementHeaderSecondary";
 import ChipsFormCore from "../../ui/ChipsFormCore";
 import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import ShowChip from "../../ui/ShowChip";
@@ -24,11 +25,11 @@ const Hobbies = () => {
 
   return (
     <div className="mt-3">
-      <h3>Hobbies</h3>
-      <span onClick={addNewField} className="itsAPointer textStart">
-        <i className="fas green fa-plus-circle mr-1" />
-        Add a new hobby
-      </span>
+      <AddNewElementHeaderSecondary
+        title="Hobbies"
+        addHandler={addNewField}
+        label="Add a new hobby"
+      />
       <a
         href="https://fontawesome.com/icons?d=gallery"
         target="_blank"

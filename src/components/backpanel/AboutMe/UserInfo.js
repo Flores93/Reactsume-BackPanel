@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import AddNewElementHeaderSecondary from "../../ui/AddNewElementHeaderSecondary";
 import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import DividedData from "../../ui/DividedData";
 import DividedInfoFormCore from "../../ui/DividedInfoFormCore";
@@ -21,11 +22,12 @@ const UserInfo = () => {
 
   return (
     <div className="mt-3">
-      <h3>User info</h3>
-      <span onClick={addNewField} className="itsAPointer">
-        <i className="fas green fa-plus-circle mr-1" />
-        Add info
-      </span>
+      <AddNewElementHeaderSecondary
+        title="User info"
+        addHandler={addNewField}
+        label="Add info"
+      />
+
       {forms.map(({ type, value, id }) => (
         <DividedInfoFormCore
           key={id}

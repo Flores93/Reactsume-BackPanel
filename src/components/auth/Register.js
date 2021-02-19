@@ -16,7 +16,7 @@ import { registerFormInitVal } from "../../constants/formsInitialValues";
 
 const Register = () => {
   const dispatch = useDispatch();
-  const [allItsOk, setAllItsOk] = useState(false);
+  const [disable, setDisable] = useState(true);
   const { goBack } = useHistory();
 
   const handleSubmit = ({ userName, email, password, password2 }) => {
@@ -29,9 +29,9 @@ const Register = () => {
 
   const validatingForm = ({ password, password2 }) => {
     if (password === password2 && password.length > 3 && password2.length > 3) {
-      setAllItsOk(true);
+      setDisable(false);
     } else {
-      setAllItsOk(false);
+      setDisable(true);
     }
   };
 
@@ -73,7 +73,7 @@ const Register = () => {
           />
 
           <BooleanSubmitBtn
-            isEnable={allItsOk}
+            isEnable={disable}
             text="Create account"
             icon={<i className="fas fa-user-plus" />}
           />

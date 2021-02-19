@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+import AddNewElementHeaderSecondary from "../../ui/AddNewElementHeaderSecondary";
 import ComponentMappingWrapper from "../../ui/ComponentMappingWrapper";
 import SocialLinksFormCore from "../../ui/SocialLinksFormCore";
 import IndividualSocial from "../../ui/IndividualSocial";
@@ -24,11 +25,11 @@ const Socials = () => {
 
   return (
     <div className="mt-3">
-      <h3>Your social networks</h3>
-      <span onClick={addNewField} className="itsAPointer">
-        <i className="fas green fa-plus-circle mr-1" />
-        Add network
-      </span>
+      <AddNewElementHeaderSecondary
+        title="Your social networks"
+        addHandler={addNewField}
+        label="Add network"
+      />
       {socialsFields.map(({ net, link, id }) => (
         <SocialLinksFormCore
           key={id}
