@@ -18,3 +18,7 @@ export const aboutMeInitValues = {
   socials: [],
   hobbies: [],
 };
+
+export const resumeInitValues = {
+  experiences: [],
+};

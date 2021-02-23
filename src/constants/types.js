@@ -16,4 +16,11 @@ export const types = {
   aboutmeDeleteSocialNet: "[ABOUT_ME]DELETE_SOCIAL_NET",
   aboutmeAddNewHobbie: "[ABOUT_ME]ADD_NEW_HOBBIE",
   aboutmeDeleteHobbie: "[ABOUT_ME]DELETE_HOBBIE",
+  //======Resume Section=======
+  resumeAddNewExpCompany: "[RESUME]ADD_NEW_EXP_COMPANY",
+  resumeUpdateExpCompany: "[RESUME]UPDATE_EXP_COMPANY",
+  resumeDeleteExpCompany: "[RESUME]DELETE_EXP_COMPANY",
+  resumeAddNewDutyCompany: "[RESUME]ADD_NEW_DUTY_COMPANY",
+  resumeUpdateDutyCompany: "[RESUME]UPDATE_DUTY_COMPANY",
+  resumeDeleteDutyCompany: "[RESUME]DELETE_DUTY_COMPANY",
 };
