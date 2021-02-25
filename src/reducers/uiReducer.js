@@ -3,6 +3,7 @@ import { types } from "../constants/types";
 const initState = {
   descriptionFieldsOk: true,
   activeEditDividedData: null,
+  activeEditSingleData: null,
   hiddeDescriptionInputs: true,
 };
 
@@ -13,10 +14,20 @@ export const uiReducer = (state = initState, action) => {
         ...state,
         activeEditDividedData: action.payload,
       };
+    case types.uiEditSingleData:
+      return {
+        ...state,
+        activeEditSingleData: action.payload,
+      };
     case types.uiDisableEditDivData:
       return {
         ...state,
         activeEditDividedData: null,
+      };
+    case types.uiDisableEditSingleData:
+      return {
+        ...state,
+        activeEditSingleData: null,
       };
     case types.uiHiddeDescriptionInput:
       return {

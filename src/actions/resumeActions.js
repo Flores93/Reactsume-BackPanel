@@ -12,6 +12,20 @@ export const savingNewExperience = ({ company, charge, desc }) => {
   };
 };
 
+export const deletingExperience = (idExp) => {
+  return (dispatch) => {
+    dispatch(experienceDeleted(idExp));
+  };
+};
+
+export const updatingCompanyName = (newName) => {
+  return (dispatch, getState) => {
+    const { activeEditSingleData: id } = getState().ui;
+
+    dispatch(companyNameChanged({ newName, id }));
+  };
+};
+
 export const updatingExpDuty = (desc) => {
   return (dispatch) => {
     dispatch(updatedDutyExp(desc));
@@ -35,6 +49,16 @@ export const addingNewCompanyDuty = (duty) => {
 const experienceSaved = (exp) => ({
   type: types.resumeAddNewExpCompany,
   payload: exp,
+});
+
+const experienceDeleted = (idExp) => ({
+  type: types.resumeDeleteExpCompany,
+  payload: idExp,
+});
+
+const companyNameChanged = (newName) => ({
+  type: types.resumeUpdateCompanyName,
+  payload: newName,
 });
 
 const updatedDutyExp = (desc) => ({

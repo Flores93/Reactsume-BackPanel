@@ -48,8 +48,8 @@ const Experiences = () => {
 
       <ComponentMappingWrapper exists={experiences}>
         {experiences.map(({ company, description, id }) => (
-          <div key={id} className="container textWhite text-center">
-            <ExperienceHandler company={company} />
+          <div key={id} className="textWhite text-center">
+            <ExperienceHandler company={company} expId={id} />
             <CompanyDescsHandler data={description} expId={id} />
             <HDivider mb="10px" mt="10px" />
           </div>

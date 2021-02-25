@@ -9,6 +9,14 @@ export const isEditDivData = (dataId) => ({
   payload: dataId,
 });
 
-export const disableEditDivData = (dataId) => ({
+export const isEditSingleData = (dataId) => ({
+  type: types.uiEditSingleData,
+  payload: dataId,
+});
+
+export const disableEditDivData = () => ({
   type: types.uiEditDivData,
+});
+export const disableEditSingleData = () => ({
+  type: types.uiDisableEditSingleData,
 });

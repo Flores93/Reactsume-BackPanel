@@ -9,6 +9,25 @@ export const resumeReducer = (state = resumeInitValues, action) => {
         ...state,
         experiences: [action.payload, ...state.experiences],
       };
+    case types.resumeDeleteExpCompany:
+      return {
+        ...state,
+        experiences: state.experiences.filter(
+          (exp) => exp.id !== action.payload
+        ),
+      };
+    case types.resumeUpdateCompanyName:
+      return {
+        ...state,
+        experiences: state.experiences.map((exp) =>
+          exp.id === action.payload.id
+            ? {
+                ...exp,
+                company: action.payload.newName,
+              }
+            : exp
+        ),
+      };
     case types.resumeAddNewDutyCompany:
       const newDuty = {
         charge: action.payload.charge,

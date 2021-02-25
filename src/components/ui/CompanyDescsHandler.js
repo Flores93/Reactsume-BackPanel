@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import AddNewElementHeaderSecondary from "./AddNewElementHeaderSecondary";
 import DefaultForm from "./DefaultForm";
+import EditButton from "./EditButton";
 import SaveRemoveBtn from "./SaveRemoveBtn";
 import InputField from "./InputField";
 
@@ -17,14 +18,12 @@ import { disableEditDivData, isEditDivData } from "../../actions/uiActions";
 import { simpleVal } from "../../helpers/validation";
 
 const CompanyDescsHandler = ({ data, expId }) => {
-  const [edit, setEdit] = useState(false);
   const [fields, setFields] = useState([]);
   const [showAddBtn, setShowAddBtn] = useState(true);
   const dispatch = useDispatch();
   const { activeEditDividedData } = useSelector((state) => state.ui);
 
   const handleEdit = (id) => {
-    setEdit(true);
     dispatch(isEditDivData(id));
   };
 
@@ -43,7 +42,6 @@ const CompanyDescsHandler = ({ data, expId }) => {
       if (isUpdate) {
         dispatch(updatingExpDuty({ charge, desc, idDesc, expId }));
         dispatch(disableEditDivData());
-        setEdit(false);
       } else {
         dispatch(addingNewCompanyDuty({ charge, desc, idDesc, expId }));
         setShowAddBtn(true);
@@ -63,7 +61,6 @@ const CompanyDescsHandler = ({ data, expId }) => {
       if (isUpdate) {
         dispatch(deletingExpDuty({ idDesc, expId }));
         dispatch(disableEditDivData());
-        setEdit(false);
       } else {
         setFields(fields.filter((data) => data.idDesc !== idDesc));
         setShowAddBtn(true);
@@ -100,26 +97,22 @@ const CompanyDescsHandler = ({ data, expId }) => {
       </div>
       <div className="col-5 textStart">{desc}</div>
       <div className="col-2">
-        <button onClick={() => handleEdit(idDesc)} className="btn">
-          <i className="fas fa-edit" />
-        </button>
+        <EditButton onClick={() => handleEdit(idDesc)} />
       </div>
     </div>
   );
 
   return (
     <>
-      {edit
-        ? data.map((data) => (
-            <div key={data.idDesc}>
-              {activeEditDividedData === data.idDesc ? (
-                <FieldsComponent {...data} isUpdate />
-              ) : (
-                <DutyDataViewer {...data} />
-              )}
-            </div>
-          ))
-        : data.map((data) => <DutyDataViewer key={data.idDesc} {...data} />)}
+      {data.map((data) => (
+        <div key={data.idDesc}>
+          {activeEditDividedData === data.idDesc ? (
+            <FieldsComponent {...data} isUpdate />
+          ) : (
+            <DutyDataViewer {...data} />
+          )}
+        </div>
+      ))}
       {showAddBtn && (
         <AddNewElementHeaderSecondary
           addHandler={addNewField}
