@@ -26,4 +26,7 @@ export const types = {
   resumeAddNewDutyCompany: "[RESUME]ADD_NEW_DUTY_COMPANY",
   resumeUpdateDutyCompany: "[RESUME]UPDATE_DUTY_COMPANY",
   resumeDeleteDutyCompany: "[RESUME]DELETE_DUTY_COMPANY",
+  resumeAddNewEducation: "[RESUME]ADD_NEW_EDUCATION",
+  resumeUpdateEducation: "[RESUME]UPDATE_EDUCATION",
+  resumeDeleteEducation: "[RESUME]DELETE_EDUCATION",
 };

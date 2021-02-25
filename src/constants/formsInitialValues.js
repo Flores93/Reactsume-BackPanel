@@ -21,4 +21,5 @@ export const aboutMeInitValues = {
 
 export const resumeInitValues = {
   experiences: [],
+  education: [],
 };

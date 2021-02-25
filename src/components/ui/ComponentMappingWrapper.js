@@ -9,7 +9,7 @@ const ComponentMappingWrapper = ({ children, exists }) => {
       {exists.length > 0 && (
         <div className="container">
           <HDivider mt="15px" mb="15px" />
-          <div className="reactBg p-3 row">{children}</div>
+          <div className="reactBg p-3 row textWhite">{children}</div>
         </div>
       )}
     </>

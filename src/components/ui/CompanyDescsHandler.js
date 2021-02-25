@@ -18,7 +18,7 @@ import { disableEditDivData, isEditDivData } from "../../actions/uiActions";
 import { simpleVal } from "../../helpers/validation";
 
 const CompanyDescsHandler = ({ data, expId }) => {
-  const [fields, setFields] = useState([]);
+  const [dutyFields, setDutyFields] = useState([]);
   const [showAddBtn, setShowAddBtn] = useState(true);
   const dispatch = useDispatch();
   const { activeEditDividedData } = useSelector((state) => state.ui);
@@ -28,8 +28,8 @@ const CompanyDescsHandler = ({ data, expId }) => {
   };
 
   const addNewField = () => {
-    setFields([
-      ...fields,
+    setDutyFields([
+      ...dutyFields,
       { charge: "", desc: "", idDesc: new Date().getTime() },
     ]);
     setShowAddBtn(false);
@@ -62,7 +62,7 @@ const CompanyDescsHandler = ({ data, expId }) => {
         dispatch(deletingExpDuty({ idDesc, expId }));
         dispatch(disableEditDivData());
       } else {
-        setFields(fields.filter((data) => data.idDesc !== idDesc));
+        setDutyFields(dutyFields.filter((data) => data.idDesc !== idDesc));
         setShowAddBtn(true);
       }
     };
@@ -119,7 +119,7 @@ const CompanyDescsHandler = ({ data, expId }) => {
           label="Add new Duty"
         />
       )}
-      {fields.map((data) => (
+      {dutyFields.map((data) => (
         <FieldsComponent key={data.idDesc} {...data} />
       ))}
     </>

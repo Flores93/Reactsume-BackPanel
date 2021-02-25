@@ -48,6 +48,7 @@ const ExperienceHandler = ({ company, expId }) => {
 
 ExperienceHandler.propTypes = {
   company: PropTypes.string.isRequired,
+  expId: PropTypes.number.isRequired,
 };
 
 export default ExperienceHandler;

@@ -44,6 +44,16 @@ export const addingNewCompanyDuty = (duty) => {
   };
 };
 
+export const addingNewEducation = (edu) => {
+  return (dispatch) => {
+    const data = {
+      ...edu,
+      id: new Date().getTime(),
+    };
+    dispatch(educationAdded(data));
+  };
+};
+
 //Synchronous
 
 const experienceSaved = (exp) => ({
@@ -74,4 +84,9 @@ const dutyExpDeleted = (ids) => ({
 const companyDutyAdded = (duty) => ({
   type: types.resumeAddNewDutyCompany,
   payload: duty,
+});
+
+const educationAdded = (edu) => ({
+  type: types.resumeAddNewEducation,
+  payload: edu,
 });

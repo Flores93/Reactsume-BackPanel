@@ -35,6 +35,7 @@ export const resumeReducer = (state = resumeInitValues, action) => {
         idDesc: action.payload.idDesc,
       };
       return {
+        ...state,
         experiences: state.experiences.map((exp) =>
           exp.id === action.payload.expId
             ? { ...exp, description: [newDuty, ...exp.description] }
@@ -48,6 +49,7 @@ export const resumeReducer = (state = resumeInitValues, action) => {
         idDesc: action.payload.idDesc,
       };
       return {
+        ...state,
         experiences: state.experiences.map((exp) =>
           exp.id === action.payload.expId
             ? {
@@ -62,6 +64,7 @@ export const resumeReducer = (state = resumeInitValues, action) => {
 
     case types.resumeDeleteDutyCompany:
       return {
+        ...state,
         experiences: state.experiences.map((exp) =>
           exp.id === action.payload.expId
             ? {
@@ -73,7 +76,11 @@ export const resumeReducer = (state = resumeInitValues, action) => {
             : exp
         ),
       };
-
+    case types.resumeAddNewEducation:
+      return {
+        ...state,
+        education: [action.payload, ...state.education],
+      };
     default:
       return state;
   }
