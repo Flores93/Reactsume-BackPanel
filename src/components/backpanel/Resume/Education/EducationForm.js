@@ -1,18 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
 import DefaultForm from "../../../ui/DefaultForm";
-
 import SaveRemoveBtn from "../../../ui/SaveRemoveBtn";
 import InputField from "../../../ui/InputField";
 
 import { useFormHandler } from "../../../../hooks/useFormHandler";
 
-import { simpleVal } from "../../../../helpers/validation";
+import { isURL, simpleVal } from "../../../../helpers/validation";
 
-const validation = ({ institution, subject }, setDisable) => {
+const validation = ({ institution, subject, url }, setDisable) => {
   if (simpleVal(institution) && simpleVal(subject)) {
-    setDisable(false);
+    if (simpleVal(url) ? (isURL(url) ? true : false) : true) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
   } else {
     setDisable(true);
   }
