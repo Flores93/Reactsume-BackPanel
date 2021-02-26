@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Swal from "sweetalert2";
 
 import DefaultForm from "../../../ui/DefaultForm";
 import SaveRemoveBtn from "../../../ui/SaveRemoveBtn";
