@@ -81,6 +81,18 @@ export const resumeReducer = (state = resumeInitValues, action) => {
         ...state,
         education: [action.payload, ...state.education],
       };
+    case types.resumeUpdateEducation:
+      return {
+        ...state,
+        education: state.education.map((edu) =>
+          edu.id === action.payload.id ? action.payload : edu
+        ),
+      };
+    case types.resumeDeleteEducation:
+      return {
+        ...state,
+        education: state.education.filter((edu) => edu.id !== action.payload),
+      };
     default:
       return state;
   }

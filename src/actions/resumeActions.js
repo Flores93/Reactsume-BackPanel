@@ -54,6 +54,26 @@ export const addingNewEducation = (edu) => {
   };
 };
 
+export const updatingEducation = (data) => {
+  return (dispatch, getState) => {
+    const { activeEditDividedData: id } = getState().ui;
+
+    const edu = {
+      ...data,
+      id,
+    };
+
+    dispatch(educationUpdated(edu));
+  };
+};
+
+export const deletingEducation = () => {
+  return (dispatch, getState) => {
+    const { activeEditDividedData: id } = getState().ui;
+    dispatch(educationDeleted(id));
+  };
+};
+
 //Synchronous
 
 const experienceSaved = (exp) => ({
@@ -89,4 +109,14 @@ const companyDutyAdded = (duty) => ({
 const educationAdded = (edu) => ({
   type: types.resumeAddNewEducation,
   payload: edu,
+});
+
+const educationUpdated = (data) => ({
+  type: types.resumeUpdateEducation,
+  payload: data,
+});
+
+const educationDeleted = (id) => ({
+  type: types.resumeDeleteEducation,
+  payload: id,
 });

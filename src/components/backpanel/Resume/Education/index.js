@@ -4,6 +4,9 @@ import { useSelector } from "react-redux";
 import AddNewElementHeaderSecondary from "./../../../ui/AddNewElementHeaderSecondary";
 import ComponentMappingWrapper from "../../../ui/ComponentMappingWrapper";
 import EducationForm from "./EducationForm";
+import EducationViewer from "./EducationViewer";
+
+import { addingNewEducation } from "../../../../actions/resumeActions";
 
 import { useFields } from "../../../../hooks/useFields";
 
@@ -25,12 +28,11 @@ const Education = () => {
           key={id}
           initVal={{ institution, subject, url }}
           remover={() => removeField(id)}
+          submitAct={addingNewEducation}
         />
       ))}
       <ComponentMappingWrapper exists={education}>
-        {education.map((data) => (
-          <div key={data.id}>{data.institution}</div> //demo
-        ))}
+        <EducationViewer data={education} />
       </ComponentMappingWrapper>
     </>
   );

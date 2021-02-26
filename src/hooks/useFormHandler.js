@@ -1,13 +1,19 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 
-export const useFormHandler = (submitAction, removeAction, validation) => {
+export const useFormHandler = (
+  submitAction,
+  removeAction,
+  validation,
+  isUpdate
+) => {
   const dispatch = useDispatch();
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(isUpdate ? false : true);
 
   const submit = (values) => {
     dispatch(submitAction(values));
-    remove();
+    removeAction(true);
   };
 
   const remove = () => {
@@ -19,4 +25,11 @@ export const useFormHandler = (submitAction, removeAction, validation) => {
   };
 
   return { submit, remove, validate, isDisabled };
+};
+
+useFormHandler.protoTypes = {
+  submitAction: PropTypes.func.isRequired,
+  removeAction: PropTypes.func.isRequired,
+  validation: PropTypes.func.isRequired,
+  isUpdate: PropTypes.bool,
 };

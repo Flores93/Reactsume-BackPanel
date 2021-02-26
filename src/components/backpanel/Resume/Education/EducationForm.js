@@ -8,8 +8,6 @@ import InputField from "../../../ui/InputField";
 
 import { useFormHandler } from "../../../../hooks/useFormHandler";
 
-import { addingNewEducation } from "../../../../actions/resumeActions";
-
 import { simpleVal } from "../../../../helpers/validation";
 
 const validation = ({ institution, subject }, setDisable) => {
@@ -20,11 +18,12 @@ const validation = ({ institution, subject }, setDisable) => {
   }
 };
 
-const EducationForm = ({ initVal, remover }) => {
+const EducationForm = ({ initVal, remover, submitAct, isUpdate = false }) => {
   const { submit, remove, validate, isDisabled } = useFormHandler(
-    addingNewEducation,
+    submitAct,
     remover,
-    validation
+    validation,
+    isUpdate
   );
 
   return (
@@ -54,7 +53,9 @@ const EducationForm = ({ initVal, remover }) => {
 
 EducationForm.propTypes = {
   initVal: PropTypes.object.isRequired,
-  removeField: PropTypes.func,
+  remover: PropTypes.func,
+  submitAct: PropTypes.func,
+  isUpdate: PropTypes.bool,
 };
 
 export default EducationForm;
